@@ -3,10 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestDrive2.Views.DetalheView"
              Title="{Binding Veiculo.Nome}">
-            <Label Text="Esta é a página de detalhes"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"/>
-            <Button x:Name="buttonProximo" Text="Próximo" 
-                    Clicked="buttonProximo_Clicked"
-                    VerticalOptions="End"></Button>
+
+    <StackLayout Padding="25">
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Acessórios">
+                    <SwitchCell Text="{Binding TextoFreioABS, Mode=TwoWay}" On="{Binding TemFreioAbs}"></SwitchCell>
+                    <SwitchCell Text="{Binding TextoArCondicionado, Mode=TwoWay}" On="{Binding TemAr}"></SwitchCell>
+                    <SwitchCell Text="{Binding TextoMp3Player, Mode=TwoWay}" On="{Binding TemMp3}"></SwitchCell>
+                    <TextCell Text="{ Binding ValorTotal, Mode=TwoWay }"></TextCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        
+        <Button x:Name="buttonProximo" Text="Próximo" 
+        Clicked="buttonProximo_Clicked"
+        VerticalOptions="End"></Button>
+    </StackLayout>
 </ContentPage>
